@@ -1,8 +1,21 @@
 # Django Contact
-To configure correctly the project you MUST declare the environment variables:
+Before running the project you have to export the environmet variables follow:
 
-- EMAIL_HOST // smtp endpoint ex."smtp.gmail.com"
-- EMAIL_HOST_USER // smtp email
-- EMAIL_HOST_PASSWORD  // smtp password
-- EMAIL_PORT  // smtp port ex. 587
-- EMAIL_HOST_USER_TO // destination email
+- DJANGO_CONTACT_EMAIL_HOST: smtp endpoint (ex."smtp.gmail.com")
+- DJANGO_CONTACT_EMAIL_HOST_USER: smtp email
+- DJANGO_CONTACT_EMAIL_HOST_PASSWORD: smtp password
+- DJANGO_CONTACT_EMAIL_PORT: smtp port (ex. 587)
+- DJANGO_CONTACT_EMAIL_HOST_USER_TO: destination email
+
+you can do it running the command follow:
+```
+$ . ./configure.sh
+``` 
+this command will ask and export the required environment variables to the current shell.
+
+IMPORTANT: this variables will be exported only in the current shell, if you don't want to add them any time just export the variables in the `~/.bashrc` 
+##
+Once configured you'll be ready to start the development server:
+```
+$ python3 manage.py runserver
+```

@@ -15,19 +15,19 @@
 	<div class="row justify-content-center mt-5">
 		<div class="col-12 col-md-8">
 			<h1>Django Contact</h1>
-			<p class="mb-0">Compila il form per inviare una mail a <code>{{ email_to }}</code></p>
+			<p class="mb-0">Send an email to <code>{{ email_to }}</code></p>
             <hr class="mt-1 mb-4">
             <div id="alert" class="d-none" role="alert"></div>
 			<form id="contact-form" method="post">
                 {% csrf_token %}
 				<fieldset>
 					<div class="form-group">
-						<label for="inputName">Nome *</label>
+						<label for="inputName">Name *</label>
 						<input type="text"
 							   class="form-control"
 							   id="name"
 							   name="name"
-							   placeholder="Inserisci il tuo nome e cognome"
+							   placeholder="Insert your name and/or surname"
 							   required
 						>
 					</div>
@@ -37,34 +37,34 @@
 							   class="form-control"
 							   id="email"
 							   name="email"
-							   placeholder="Inserisci il tuo indirizzo email"
+							   placeholder="Insert your email address"
 							   required
 						>
 					</div>
 					<div class="form-group">
-						<label for="inputSubject">Oggetto *</label>
+						<label for="inputSubject">Subject *</label>
 						<input type="text"
 							   class="form-control"
 							   id="subject"
 							   name="subject"
-							   placeholder="Inserisci l'oggetto della mail"
+							   placeholder="Insert the subject of the mail"
 							   required
 						>
 					</div>
 					<div class="form-group">
-						<label for="inputSubject">Messaggio *</label>
+						<label for="inputSubject">Message *</label>
 						<textarea rows="5"
 								  class="form-control"
 								  id="message"
 								  name="message"
-								  placeholder="Inserisci il messaggio"
+								  placeholder="Insert the message"
 								  required
 						></textarea>
 					</div>
 					<div class="mt-4">
-						<button type="reset" class="btn btn-outline-secondary">Pulisci</button>
+						<button type="reset" class="btn btn-outline-secondary">Clean</button>
 						<button type="submit" class="btn btn-primary float-right">
-							Invia
+							Submit
 							<i class="loader fa fa-circle-notch fa-spin ml-1"></i>
 						</button>
 					</div>

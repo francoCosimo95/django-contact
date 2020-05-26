@@ -12,7 +12,7 @@ function setLoading(isLoading) {
 
 function showAlert(isVisible, isSuccess) {
     if (isVisible) {
-        const message = isSuccess ? 'Email inviata con successo.' : '<b>Errore!</b> Impossibile inviare la mail. Riprova più tardi.';
+        const message = isSuccess ? 'Email successfully sent.' : '<b>Error!</b> Failed to send the email. Try later.';
         alert.html(message).attr('class', `alert alert-${isSuccess ? 'success' : 'danger'}`);
     } else {
         alert.attr('class', 'd-none');
@@ -20,7 +20,6 @@ function showAlert(isVisible, isSuccess) {
 }
 
 function sendEmail(data) {
-    console.log("Send message", data);
     return new Promise((resolve, reject) => {
         $.ajax({
             type: 'POST',
@@ -49,7 +48,7 @@ $("#contact-form").submit(async function (event) {
         showAlert(true, true);
         form[0].reset();
     } catch (e) {
-        console.log(e);
+        console.error(e);
         showAlert(true, false);
     }
     setLoading(false);

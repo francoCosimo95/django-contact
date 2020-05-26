@@ -11,11 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import logging
 from django.core.exceptions import ImproperlyConfigured
-
-# Get an instance of a logger
-logger = logging.getLogger(__name__)
 
 
 def get_env_value(env_variable):
@@ -136,8 +132,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-EMAIL_HOST = get_env_value("EMAIL_HOST")
-EMAIL_HOST_USER = get_env_value("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = get_env_value("EMAIL_HOST_PASSWORD")
-EMAIL_PORT = get_env_value("EMAIL_PORT")
+EMAIL_HOST = get_env_value("DJANGO_CONTACT_EMAIL_HOST")
+EMAIL_HOST_USER = get_env_value("DJANGO_CONTACT_EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = get_env_value("DJANGO_CONTACT_EMAIL_HOST_PASSWORD")
+EMAIL_PORT = get_env_value("DJANGO_CONTACT_EMAIL_PORT")
 EMAIL_USE_TLS = True
