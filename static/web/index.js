@@ -32,7 +32,7 @@ function sendEmail(data) {
     });
 }
 
-$("#contact-form").submit(async function (event) {
+form.submit(async function (event) {
     event.preventDefault();
     setLoading(true);
     showAlert(false)
