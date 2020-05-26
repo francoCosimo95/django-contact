@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		  crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'web/style.css' %}">
+	<title>Django Contact</title>
+</head>
+<body>
+<div class="container mb-5">
+	<div class="row justify-content-center mt-5">
+		<div class="col-12 col-md-8">
+			<h1>Django Contact</h1>
+			<p class="mb-0">Compila il form per inviare una mail a <code>{{ email_to }}</code></p>
+            <hr class="mt-1 mb-4">
+            <div id="alert" class="d-none" role="alert"></div>
+			<form id="contact-form" method="post">
+                {% csrf_token %}
+				<fieldset>
+					<div class="form-group">
+						<label for="inputName">Nome *</label>
+						<input type="text"
+							   class="form-control"
+							   id="name"
+							   name="name"
+							   placeholder="Inserisci il tuo nome e cognome"
+							   required
+						>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail">Email *</label>
+						<input type="email"
+							   class="form-control"
+							   id="email"
+							   name="email"
+							   placeholder="Inserisci il tuo indirizzo email"
+							   required
+						>
+					</div>
+					<div class="form-group">
+						<label for="inputSubject">Oggetto *</label>
+						<input type="text"
+							   class="form-control"
+							   id="subject"
+							   name="subject"
+							   placeholder="Inserisci l'oggetto della mail"
+							   required
+						>
+					</div>
+					<div class="form-group">
+						<label for="inputSubject">Messaggio *</label>
+						<textarea rows="5"
+								  class="form-control"
+								  id="message"
+								  name="message"
+								  placeholder="Inserisci il messaggio"
+								  required
+						></textarea>
+					</div>
+					<div class="mt-4">
+						<button type="reset" class="btn btn-outline-secondary">Pulisci</button>
+						<button type="submit" class="btn btn-primary float-right">
+							Invia
+							<i class="loader fa fa-circle-notch fa-spin ml-1"></i>
+						</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+<script src="{% static 'web/index.js' %}"></script>
+</body>
+</html>
